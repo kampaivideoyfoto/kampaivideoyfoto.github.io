@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Multicolore';
+  src: url('Multicolore.eot');
+  src: url('Multicolore.woff2') format('woff2'),
+       url('Multicolore.woff') format('woff'),
+       url('Multicolore.ttf') format('truetype'),
+       url('Multicolore.svg#Multicolore') format('svg'),
+       url('Multicolore.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
