@@ -7,6 +7,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 // Replace the 'ytplayer' element with an <iframe> and
 // YouTube player after the API code downloads.
 var playerReel, playerBodas, player15anios, playerExtras;
+
 function onYouTubePlayerAPIReady() {
   player = new YT.Player('ytplayeReel', {
     height: '390',
@@ -32,10 +33,64 @@ function onYouTubePlayerAPIReady() {
 
 $(function() {
 
-  $('.owl-carousel').owlCarousel({
+  var carouselObj = {
     loop:true,
     autoplay:true,
     center:true,
-    items: 1
+    items: 1,
+    responsive:{
+        0:{
+            items:1
+        },
+        632:{
+            items:1
+        }
+    }
+  };
+
+  var container = $('.owl-carousel'),
+      mobile = false;
+
+  $(window).resize(function () {
+
+    $("[data-change-src]").each(function(key, val){
+      if ($(window).width() <= $(val).attr("trigger-width")){
+          var current = $(val).attr("src");
+          var newSrc = current.replace('full', 'mobile');
+          $(val).attr("src", newSrc);
+
+          mobile = true;
+      }
+      else{
+          var current = $(val).attr("src");
+          var newSrc = current.replace('mobile', 'full');
+          $(val).attr("src", newSrc);
+
+          mobile = false;
+      }
+    });
+
+    if (mobile === true)
+    {
+      container.removeClass('owl-carousel owl-loaded');
+
+      if (container.data('owlCarousel'))
+      {
+        container.data('owlCarousel').destroy();
+        container.find('.owl-stage-outer').children().unwrap();
+        container.removeData();
+      }
+    }
+    else 
+    {
+        container.owlCarousel(carouselObj);
+    }
+  });
+
+  $(window).resize();
+
+  $(".burger").click(function(){
+    $("#triangle-topleft, html, nav").toggleClass("menu__active");
+    $(this).toggleClass('burger--close');
   });
 }());

@@ -20,6 +20,11 @@ html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  overflow-x: hidden;
+}
+
+.page-content{
+  overflow-x: hidden;
 }
 
 header{
@@ -31,6 +36,87 @@ header{
   height: 250px;
   position: absolute;
   z-index: 100;
+}
+
+#triangle-topleft {
+  display: none;
+  width: 0;
+  height: 0;
+  border-top: 8vw solid white;
+  border-right: 100vw solid transparent;
+  position: absolute;
+  top: 23vw;
+  left: 0;
+  transition: border 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#triangle-topleft.menu__active{
+  border-top: 999999px solid white;
+  transition: border 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.burger {
+  display: none;
+  position: absolute;
+  padding: 20px;
+  z-index: 17;
+  right: 0;
+  top: 22%;
+  cursor: pointer;
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  -moz-transition: -moz-transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.burger__patty {
+  display: block;
+  width: 28.2px;
+  height: 1px;
+  margin: 0 0 4px 0;
+  background: #808080;
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),background-color 4s cubic-bezier(0.23, 1, 0.32, 1);
+  -moz-transition: -moz-transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),background-color 4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),background-color 4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.burger__patty:last-child {
+  margin-bottom: 0;
+}
+.burger--close {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.burger--close .burger__patty {
+  background-color: #3e3e3e;
+}
+.burger--close .burger__patty:nth-child(1) {
+  -webkit-transform: rotate(45deg) translate(3px, 4px);
+          transform: rotate(45deg) translate(3px, 4px);
+}
+.burger--close .burger__patty:nth-child(2) {
+  opacity: 0;
+}
+.burger--close .burger__patty:nth-child(3) {
+  -webkit-transform: rotate(-45deg) translate(4px, -4px);
+          transform: rotate(-45deg) translate(4px, -4px);
+}
+
+@media screen and (max-width: 480px) {
+  .burger {
+    padding: 25px 2.5px;
+    top: 0;
+  }
+}
+
+html.menu__active{
+  overflow: hidden;
+}
+
+.menu-btn{
+  border: 0;
+  position: absolute;
+  right: 0;
+  padding: 20px;
 }
 
 nav{
@@ -50,7 +136,7 @@ nav .nav-contact-item{
   font-size: 16.5px;
 }
 
-nav .nav-contact-divider{
+nav .nav-divider{
   margin: -7.5px 10px;
   border-left: 1px solid #666;
   height: 30px;
@@ -131,10 +217,6 @@ p, a{
   background: url(../img/sub-1.jpg) no-repeat;
   background-size: 100%;
   color: white;
-}
-
-.sub-1 .v-center-container{
-  height: 29.3vw;
 }
 
 .sub-2 {
@@ -243,11 +325,11 @@ p, a{
 }
 
 .pad-50{
-  padding: 50px;
+  padding: 50px 5px;
 }
 
 .pad-100{
-  padding: 100px;
+  padding: 100px 5px;
 }
 
 .diagonal{
@@ -272,6 +354,7 @@ p, a{
   background: rgba(0, 0, 0, 0.16);
   width: 100%;
   position: absolute;
+  left: 0;
 }
 
 .text-gray{
@@ -290,6 +373,258 @@ p, a{
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+}
+
+@media screen and (max-width: 40em) {
+
+  .burger{
+    display: block;
+  }
+
+  header{
+    text-align: center;
+    height: 45vw;
+  }
+
+  nav{
+    display: none;
+  }
+
+  nav.menu__active{
+    display: block;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+  }
+
+  .nav-divider{
+    display: none !important;
+  }
+
+  .nav-contact-item{
+    font-size: 0.9em !important;
+  }
+
+  .nav-link{
+    display: block;
+    padding: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  .page-wrapper {
+      padding-top: 24vw;
+  }
+
+  .sub-1 .v-center-container {
+    margin: 0;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .sub-1 {
+    background-size: auto 100%;
+    background-position: 70% 0;
+  }
+
+  .sub-2 {
+    background-size: 30%;
+    background-position: 50% 5%;
+    padding-top: 25% !important;
+    height: 65vh !important;
+  }
+
+  .sub-3{
+    background-size: 50%;
+    background-position: 50% 5%;
+    padding-top: 25% !important;
+  }
+
+  .logo{
+    height: 20vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 4vw auto;
+    z-index: 1;
+  }
+
+  h1{
+    font-size: 1em;
+  }
+
+  h2{
+    font-size: 1.15em;
+  }
+
+  h3{
+    font-size: 1em;
+  }
+
+  p, a{
+    font-size: 0.9em;
+    line-height: 1.4em;
+  }
+
+  .wood-iphone {
+    background-size: auto 145%;
+    background-position: 70% 30%;
+    padding: 5px 15%;
+    height: 75vh !important;
+  }
+
+  .seccion.responsive{
+    padding: 5px;
+    height: 60vh;
+    text-align: center;
+  }
+
+  #ytplayeReel{
+    width: 100%;
+    height: 56vh;
+  }
+
+  footer {
+    padding: 30px 5px;
+  }
+
+  footer p {
+    font-size: 0.83em !important;
+  }
+
+  footer li {
+    padding: 5px;
+  }
+
+  footer li a img {
+    height: 40px;
+  }
+
+  .diagonales img.diagonal + p.upper {
+    margin: -18.5% 0 -0 20px;
+  }
+
+  .header-portafolio-bg {
+      background: url(../img/portafolio-header-bg.jpg) no-repeat #E7E7E7;
+      background-size: auto 100%;
+      background-position: center;
+  }
+
+  .diagonales img + p {
+    position: absolute;
+    margin: -11% 0 -0 20px;
+    letter-spacing: 2px;
+    max-width: 100px;
+    line-height: 20px;
+    font-size: 1.15em;
+  }
+
+  .diagonal{
+    margin: 0;
+  }
+
+  .medium-pad{
+    padding-top: 4%;
+  }
+
+  .wood-iphone-contact {
+    background-size: auto 130%;
+    background-position: 50% 30%;
+    height: 100vh !important;
+  }
+
+  .listado li {
+    padding-right: 5px;
+  }
+
+  #triangle-topleft {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 40em) and (max-width: 64em) {
+
+  nav{
+    margin: 35px 40px 0 0;
+  }
+
+  nav *{
+    font-size: 0.9em;
+  }
+
+  nav .nav-contact-item {
+    font-size: 0.8em;
+  }
+
+  .logo{
+    height: 14vw;
+  }
+
+  h1{
+    font-size: 1em;
+  }
+
+  h2{
+    font-size: 1.15em;
+  }
+
+  h3{
+    font-size: 1em;
+  }
+
+  p, a{
+    font-size: 0.9em;
+    line-height: 1.4em;
+  }
+
+  .wood-iphone {
+    background-size: auto 145%;
+    background-position: 30% 0;
+  }
+
+  .seccion{
+    height: 60vh;
+  }
+
+  .seccion.responsive{
+    height: 29.3vw;
+  }
+
+  /*#ytplayeReel{
+    width: 100%;
+    height: 56vh;
+  }*/
+
+  footer {
+    padding: 30px 60px;
+  }
+
+  footer p {
+    font-size: 0.83em !important;
+  }
+
+  footer li {
+    padding: 5px;
+  }
+
+  footer li a img {
+    height: 40px;
+  }
+
+  .diagonales img.diagonal + p.upper {
+    margin: -7.5% 0 -0 20px;
+  }
+
+  .medium-pad{
+    padding-top: 4%;
+  }
+
+  .wood-iphone-contact {
+    background-size: 130% auto;
+    height: 100vh !important;
+  }
+
 }
 
 /*
