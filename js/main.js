@@ -16,17 +16,14 @@ function onYouTubePlayerAPIReady() {
   });
   player = new YT.Player('ytplayerBodas', {
     height: '130',
-    width: '211',
     videoId: 'xuSng5CbX9k'
   });
   player = new YT.Player('ytplayer15anios', {
     height: '130',
-    width: '211',
     videoId: 'xuSng5CbX9k'
   });
   player = new YT.Player('ytplayerExtras', {
     height: '130',
-    width: '211',
     videoId: 'xuSng5CbX9k'
   });
 }
