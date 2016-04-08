@@ -77,9 +77,18 @@ $(function() {
         container.find('.owl-stage-outer').children().unwrap();
         container.removeData();
       }
+      container.owlCarousel(carouselObj);
     }
     else
     {
+      container.removeClass('owl-carousel owl-loaded');
+
+      if (container.data('owlCarousel'))
+      {
+        container.data('owlCarousel').destroy();
+        container.find('.owl-stage-outer').children().unwrap();
+        container.removeData();
+      }
         container.owlCarousel(carouselObj);
     }
   });
