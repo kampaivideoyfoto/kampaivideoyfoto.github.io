@@ -252,8 +252,8 @@ p, a{
 
 .wood-iphone-contact{
     background: url(../img/wood-iphone-bg-2.jpg) no-repeat #E7E7E7;
-    background-size: 100% auto;
-    background-position: 0 45%;
+    background-size: 120% auto;
+    background-position: -20px 45%;
     height: 140vh !important;
 }
 
@@ -383,7 +383,7 @@ p, a{
 }
 
 .video-wrapper .columns{
-  padding: 10px 10px 0 0;
+  padding: 5px 5px 0 0;
 }
 
 .video-wrapper .columns:last-child{

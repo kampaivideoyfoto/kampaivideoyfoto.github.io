@@ -81,6 +81,9 @@ $(function() {
     }
     else
     {
+      $("#triangle-topleft, html, nav").removeClass("menu__active");
+      $(".burger").removeClass('burger--close');
+
       container.removeClass('owl-carousel owl-loaded');
 
       if (container.data('owlCarousel'))
@@ -89,7 +92,8 @@ $(function() {
         container.find('.owl-stage-outer').children().unwrap();
         container.removeData();
       }
-        container.owlCarousel(carouselObj);
+      
+      container.owlCarousel(carouselObj);
     }
   });
 
