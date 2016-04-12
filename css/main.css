@@ -22,7 +22,6 @@ html {
   font-size: 1em;
   line-height: 1.4;
   overflow-x: hidden;
-  max-width: 1360px;
 }
 
 .page-content{
@@ -36,8 +35,17 @@ header{
   background-repeat: repeat-x;
   width: 100%;
   height: 250px;
+  margin: 0 -5px;
   position: absolute;
   z-index: 100;
+}
+
+@media screen and (min-width: 1360px) {
+  header {
+    background-size: 100%;
+    height: 17vw;
+    width: 101%;
+  }
 }
 
 #triangle-topleft {
