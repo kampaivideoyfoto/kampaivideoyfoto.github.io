@@ -151,6 +151,14 @@ footer{
   float: left;
 }
 
+footer a{
+  color: #666;
+}
+
+footer a:hover, footer a:focus{
+  color: #a8518a;
+}
+
 footer ul, footer li, .listado, .listado li{
   display: inline-block;
 }
@@ -192,6 +200,11 @@ p, a{
   margin: 0;
 }
 
+a.paquete:hover, a.paquete:focus{
+  color: #a8518a;
+  text-shadow: .75px .75px rgba(0, 0, 0, 0.5);;
+}
+
 .page-wrapper{
   padding-top: 130px;
 }
@@ -213,6 +226,7 @@ p, a{
 
 .logo{
   margin: 35px;
+  max-width: 230px;
 }
 
 .sub-1{
@@ -366,6 +380,10 @@ p, a{
 
 .text-white{
   color: white;
+}
+
+.text-black{
+  color: black;
 }
 
 .bg-gray{

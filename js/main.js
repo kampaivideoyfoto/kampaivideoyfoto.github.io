@@ -14,17 +14,17 @@ function onYouTubePlayerAPIReady() {
     width: '640',
     videoId: 'xuSng5CbX9k'
   });
-  player = new YT.Player('ytplayerBodas', {
+  player = new YT.Player('ytplayerBodass', {
     height: '130',
-    videoId: 'xuSng5CbX9k'
+    videoId: '5D_06SPzo-8'
   });
   player = new YT.Player('ytplayer15anios', {
     height: '130',
-    videoId: 'xuSng5CbX9k'
+    videoId: 'fy7m4K53vK0'
   });
-  player = new YT.Player('ytplayerExtras', {
+  player = new YT.Player('ytplayerEventos', {
     height: '130',
-    videoId: 'xuSng5CbX9k'
+    videoId: 'sxcU2Y5FK0A'
   });
 }
 
@@ -92,7 +92,7 @@ $(function() {
         container.find('.owl-stage-outer').children().unwrap();
         container.removeData();
       }
-      
+
       container.owlCarousel(carouselObj);
     }
   });
